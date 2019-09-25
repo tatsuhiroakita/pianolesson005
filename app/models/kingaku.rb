@@ -1,0 +1,2 @@
+class Kingaku < ApplicationRecord
+end

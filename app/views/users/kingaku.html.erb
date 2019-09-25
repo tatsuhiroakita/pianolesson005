@@ -1,0 +1,39 @@
+<div class="top-hero-wrapper text-center">
+  <div class="container top-hero-container">
+
+    <div class="row">
+       <%#= form_with(url: payment_path html: name: => "kingaku_form") do |form| %>
+       <%= form_with(url: payment_path, 
+          html: { name: "kingaku_form" }) do |form| %>
+
+         <%= form.select :amount, 
+             [["1000","1000"],
+              ["2000","2000"],
+              ["3000","3000"]] ,{:id => "amount"} %>
+
+         <%#= form.submit "支払い", class: 'btn-block btn-white' %>
+
+         <input type="button" value="支払" onclick='save_kingaku("kingaku")'>
+         
+         
+
+      <% end %>
+     </div>
+   </div>
+</div>
+
+<script>
+  var save_kingaku = function (coknam) {
+    const amount = document.kingaku_form.amount;
+    const num = amount.selectedIndex;
+    const str = amount.options[num].value;
+    alert(str+': '+coknam);
+    day0 = new Date();
+    day0.setTime(day0.getTime()+60*60*24*1000);
+    endday = day0.toGMTString();
+    document.cookie = coknam+"="+escape(str)+";expires="+endday;
+    //alert(coknam);
+    //Paymentに画面遷移(あらたな画面は開かない）
+    window.location.href = './payment'; 
+  }
+</script>
