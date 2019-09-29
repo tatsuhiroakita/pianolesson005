@@ -35,6 +35,28 @@ class UsersController < ApplicationController
     
   end
 
+  def carddata
+    @amount=params[:amount]
+    @payjp_pk=ENV.fetch("PAYJP_PK")
+    binding.pry
+    if params[:amount]=="" || params[:amount].nil?
+      ##redirect_to 
+      #binding.pry
+      puts "error"
+      flash.now[:danger] = "入力に不備があります。登録に失敗しました"
+      render :paymenttest
+    else 
+      binding.pry
+      #redirect_to :usergamen
+      #render :usergamen
+      #redirect_to carddata
+      #@amount=params[:amount]
+      render :carddata
+      #redirect_to :usergamen
+    end
+  end
+
+
   def confirm
     #  確認画面作る
     @user = User.new(user_params)
@@ -63,15 +85,31 @@ class UsersController < ApplicationController
     # cookieから金額を読み込んで金額ammount:に入れる
     #Payjp.api_key = 'Payjp の画面から取得した秘密鍵'
     ##binding.pry
-    Payjp.api_key =ENV.fetch("PAYJP_SK")
-    Payjp::Charge.create(
-    #amount: params[:amount], # 決済する値段
-    ##amount: cookies['kingaku'].to_i,
-    amount: params[:amount].to_i,
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
-    redirect_to :usergamen
+      
+    ## 金額チェック
+    binding.pry
+    if params[:amount] == "" || params[:amount].nil?
+      flash.now[:danger] = "入力に不備があります。登録に失敗しました"
+      puts "error"
+      redirect_to :paymenttest and return
+    else 
+      #binding.pry
+      Payjp.api_key =ENV.fetch("PAYJP_SK")
+      Payjp::Charge.create(
+      #amount: params[:amount], # 決済する値段
+      ##amount: cookies['kingaku'].to_i,
+      amount: params[:amount].to_i,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
+      ## 入金が成功したら表示
+      flash.now[:danger] = "入金に成功しました"
+      ## 成功していたら入金データに記録
+
+      ## ユーザ画面に戻る
+      redirect_to :usergamen and return
+    end
+    
   end
 
   def payment
