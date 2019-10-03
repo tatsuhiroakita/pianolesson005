@@ -10,13 +10,18 @@
     <div class="row">
       <%= form_with url: pay_path do |form| %>
         <%= form.label :"金額(kingaku)", class: 'u_text-white' %>
-        <%#= form.collection_select( :amount, Kingaku.all, :kingaku, :kingaku, {prompt:  "選択してください"}, {class: "form-control input-sm"}) %>
-        <%= form.collection_select( :amount, Kingaku.all, :kingaku, :kingaku, {include_blank: true, selected: params[:amount] }, {class: "form-control input-sm"}) %>
+        <%= form.collection_select( :amount, Kingaku.all, :kingaku, :kingaku,  {include_blank: true, selected: params[:amount]}, {class: "form-control input-sm", disabled: true,}) %>
+        <%=form.hidden_field(:amount, :value => params[:amount]) %>
           <plain>
             <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="<%=@payjp_pk%>"></script>
           </plain>
       <% end %>
     </div>
+
+    <div class="col-md-offset-1 col-md-3">
+        <%= link_to 'キャンセル', usergamen_path,class: 'btn btn-block btn-white' %>
+    </div>
+
 
   </div>
 </div>

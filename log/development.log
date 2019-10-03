@@ -40989,3 +40989,772 @@ Processing by UsersController#usergamen as HTML
 Completed 200 OK in 147ms (Views: 139.7ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/" for 192.168.10.9 at 2019-10-02 21:31:36 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 584ms (Views: 563.4ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/login" for 192.168.10.9 at 2019-10-02 21:31:38 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (904.5ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 1040ms (Views: 1035.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.10.9 at 2019-10-02 21:31:45 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PD6nf8PB6GV7f6sWzIp0gurucs5BBEFJq99ImglULRQmo8rGqFdpT8gabqYM4TcMIvdYhZrt1NhwBrW295mL9g==", "session"=>{"username"=>"test026", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test026"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 86ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:31:46 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (1.9ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (21.0ms)
+  Rendered users/usergamen.html.erb within layouts/application (51.2ms)
+Completed 200 OK in 245ms (Views: 221.6ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:31:49 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (1.0ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (39.4ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 206ms (Views: 195.9ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:32:10 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nKfP7PvHwHFwPOk8q8FBRonYtkszWwy4olPaJoU/KzhfM7jjRIflN2bjW7DEoefKY88w9ubAB5NNGKu6kyUQ/A==", "amount"=>"", "commit"=>"登録"}
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (13.6ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 20244ms (Views: 176.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:32:41 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CgR5u3svNb1gOTmW63zBTBMWRMCcdtULHnMIEfsSljuRFdJTsWM0wNbDDLd8k1bbUnv6QAuGHPZng36MWTDlVQ==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:14
+  Rendered users/carddata.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 23775ms (Views: 119.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/carddata" for 192.168.10.9 at 2019-10-02 21:36:39 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#carddata as HTML
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:36:46 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9DELhdyVIVF0JD+m2mBU76wHbAGK1z7+TqiunZYqQ3swW/G3T5V+PMqpd8MhhbE/92jMJHblQaAytQn1HraYw==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (2.0ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  [1m[36mKingaku Load (1.5ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:14
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (36.0ms)
+  Rendered users/carddata.html.erb within layouts/application (9762.3ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 18942ms (Views: 10070.4ms | ActiveRecord: 72.1ms)
+
+
+Completed 200 OK in 25867ms (Views: 398.2ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/carddata" for 192.168.10.9 at 2019-10-02 21:37:27 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 10686ms (Views: 140.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/carddata" for 192.168.10.9 at 2019-10-02 21:40:03 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 7601ms (Views: 129.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:40:21 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cny6xZeMsL9tm2uk8he42fSKe5HWDlqsib99sDANGyrpbREtXcCxwtthXoVl+C9OtefFEUH+k1HwTwstki9oRA==", "amount"=>"", "commit"=>"登録"}
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (1.1ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (580.3ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 8222ms (Views: 769.4ms | ActiveRecord: 19.1ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:40:33 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TtQo4Ur0Me9seFqSFfIUFVIEKYalnTGpwp5WNQRlu3LVxYMJgLgwktqCb7OCHYOCE2mXBjJt+FS7biCopkfIHA==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  Rendered users/carddata.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 7385ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/lmf/ZZ_WORK/rb241/pianolesson/app/views/users/carddata.html.erb:13: syntax error, unexpected ',', expecting =>
+, selected: params[:amount] }, {class: "form-control input-s
+                              ^
+/home/lmf/ZZ_WORK/rb241/pianolesson/app/views/users/carddata.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+s: "form-control input-sm"}) );@output_buffer.safe_append='
+                              ^
+/home/lmf/ZZ_WORK/rb241/pianolesson/app/views/users/carddata.html.erb:25: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/carddata.html.erb:13: syntax error, unexpected ',', expecting =>
+app/views/users/carddata.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+app/views/users/carddata.html.erb:25: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/controllers/users_controller.rb:54:in `carddata'
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:44:18 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TtQo4Ur0Me9seFqSFfIUFVIEKYalnTGpwp5WNQRlu3LVxYMJgLgwktqCb7OCHYOCE2mXBjJt+FS7biCopkfIHA==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.8ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 5970ms (Views: 142.7ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 21:44:46 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VBsPJN05yOvVtb7Bg4Z+oKXfaaS5yuhdZDChaRBMPETPCqTMF3XJlmNPi+AUaek35LLXJC46IaAdwNf0sm5PKg==", "payjp-token"=>"tok_1fc3f989e617398b666a727fdc23"}
+Redirected to http://192.168.10.69:3000/paymenttest
+Completed 302 Found in 7063ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:44:53 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (7.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 130ms (Views: 125.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:45:48 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hTgxdtZMXPhdeWDJdsJlV958dKa+UR9qAVCjLhrFrcQeKZqeHABdheuDVejhLfLAnxHKJimh1pd4oNWzuOfeqg==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.8ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 7084ms (Views: 129.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 21:46:13 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+mw/W9Gz9kspV1MMQ3/7n4pShQysLL1bvvbVmHCc0ophfZSzG//3Np+tZi3UkGwIyz87jDvcdKbHBqMF0r6h5A==", "payjp-token"=>"tok_53192f29ec0f727391bcc9584a7c"}
+Redirected to http://192.168.10.69:3000/paymenttest
+Completed 302 Found in 223342ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:49:56 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (27.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 219ms (Views: 200.6ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/" for 192.168.10.9 at 2019-10-02 21:50:07 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 764ms (Views: 744.2ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/login" for 192.168.10.9 at 2019-10-02 21:50:09 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (219.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 419ms (Views: 415.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 192.168.10.9 at 2019-10-02 21:50:16 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GOZ/OIrRBHT9dFA5E0rhhcrOQXeIKQjdqQe554+S/BXOPemB4sOvQqEvXD+ncg0EWGr8yRFwFWA21XYLVfzQ==", "session"=>{"username"=>"test026", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test026"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 85ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:50:16 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.9ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (18.4ms)
+  Rendered users/usergamen.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 171ms (Views: 155.2ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:50:18 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (25.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 145ms (Views: 135.7ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:50:24 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/JtA+SGhENpziZRbk9txkoiBF+qBLbO9Pt7Mapr/mx8/Dzf2nuE1nGVWJtf8u9ceYpaRV1S2uJbRlb32jOWg2w==", "amount"=>"5000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 123ms (Views: 120.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 21:50:41 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CYkB+a9MuLVqZj3KMvCRIbhPnVw7GBtj20h4/ir/y9HN4/vLPEzn2NTrda/JFXTx4yA9eccqZD2nVd+WomMQQ==", "payjp-token"=>"tok_69c2036e33b5dc5e713bc6d9f262"}
+Redirected to http://192.168.10.69:3000/paymenttest
+Completed 302 Found in 247530ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:54:49 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.8ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 140ms (Views: 136.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 192.168.10.9 at 2019-10-02 21:54:56 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 719ms (Views: 698.9ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/login" for 192.168.10.9 at 2019-10-02 21:54:58 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (136.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 262ms (Views: 259.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 192.168.10.9 at 2019-10-02 21:55:04 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gDuAZUs9GIJIflbj5OMTTpam3BbglZnKjrqHzeVe/VOapu3cIKuZqPsbk1MkiFDAXr/2XTt8DFtVY3rhG5NbsQ==", "session"=>{"username"=>"test026", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test026"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 85ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:55:04 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (1.0ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (21.9ms)
+  Rendered users/usergamen.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 237ms (Views: 220.7ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:55:05 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (33.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 217ms (Views: 206.8ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:55:14 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y/BYEh4VJ77BcbJOqy/zWoTCRr0zidGTV2HtxtUgG/egZC8doVUC+NeuAMLET1XWbtXAAOYS2ri4KpxawzogMw==", "amount"=>"3000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (758.0ms)
+Completed 500 Internal Server Error in 764ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `value' for #<#<Class:0x007efd568a4b20>:0x007efd4c2b5f98>):
+    11:       <%= form_with url: pay_path do |form| %>
+    12:         <%= form.label :"金額(kingaku)", class: 'u_text-white' %>
+    13:         <%= form.collection_select( :amount, Kingaku.all, :kingaku, :kingaku,  {include_blank: true, selected: params[:amount]}, {class: "form-control input-sm", disabled: true,}) %>
+    14:         <%=form.hidden_field(:amount, value => params[:amount]) %>
+    15:           <plain>
+    16:             <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="<%=@payjp_pk%>"></script>
+    17:           </plain>
+  
+app/views/users/carddata.html.erb:14:in `block in _app_views_users_carddata_html_erb___4035874296685213663_69813184864500'
+app/views/users/carddata.html.erb:11:in `_app_views_users_carddata_html_erb___4035874296685213663_69813184864500'
+app/controllers/users_controller.rb:54:in `carddata'
+Started GET "/" for 192.168.10.9 at 2019-10-02 21:56:56 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 905ms (Views: 886.1ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/login" for 192.168.10.9 at 2019-10-02 21:56:59 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (89.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 208ms (Views: 205.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 192.168.10.9 at 2019-10-02 21:57:04 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RnsgahCme23BMbGyJfyT1pUS6ZFaf6TK56IEFmuaXZxc5k3TezD6R3JUdALll9BYXQvD2oGWMVs8e/k6lVf7fg==", "session"=>{"username"=>"test026", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test026"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 84ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:57:05 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.8ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (18.2ms)
+  Rendered users/usergamen.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 190ms (Views: 174.1ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:57:06 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.9ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 145ms (Views: 134.2ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:57:08 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OqN0EmuopIndvqrsXDOKX3bOtrdHqiD6XWHq42myaRr5NwMd1OiBz8thGGAzUyzTnNkwCpIxK9GyKpt/f6hS3g==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (14.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 130ms (Views: 127.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 21:57:19 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5TMVuGpQZHRtk+bw0LP1AdnN7uuCN8WJ/tPKwPaZiLB+Ir5QoBxlCdtp09FHXGKWmKBQaxXHDHSHI7xdVLv73g==", "amount"=>"2000", "payjp-token"=>"tok_34241c636d47a556b5286401046a"}
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 13915ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:57:33 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.8ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (17.1ms)
+  Rendered users/usergamen.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 145ms (Views: 138.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 21:59:12 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (26.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 206ms (Views: 188.5ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:59:16 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aK7UhWT95Gbu+DMHVBJvCmPqJxrzedM+1bJFrLOp4pSrOqOK273BIPgngYs7csmGif2hpybi2BU6+TQwpbPZUA==", "amount"=>"", "commit"=>"登録"}
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 128ms (Views: 125.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 21:59:20 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"clNTyPmBDe/5gnDGJApwmhl0hqlmicaAqxn1NqrKie3pQvggM80Mkk94Reez5ecNWBk4KfF5D33S6YOrCOj6gw==", "amount"=>"3000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 129ms (Views: 125.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 21:59:46 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Z9F8NpCMLkRwCQvejq1ocJVjAM4Zi9Do8jtBQO0cVhuju4YEA4xxKc6EQ7t1SI2gzgyg6+W5r7aOJuYoZYCNg==", "amount"=>"3000", "payjp-token"=>"tok_123fa93e98b35f9fac9c6e6c2407"}
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 2243ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 21:59:48 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.7ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (36.0ms)
+  Rendered users/usergamen.html.erb within layouts/application (60.9ms)
+Completed 200 OK in 201ms (Views: 172.0ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 22:01:48 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.8ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (27.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 209ms (Views: 191.1ms | ActiveRecord: 16.1ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 22:01:55 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wMHJQVsTPnSRgfzDSg4MOlL+OaIFGoJyGznRJ/QHGDYDVb5O5FMbModeTk8lbqq2uOm/H9CBiVn0cqC74h0j8g==", "amount"=>"4000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (8.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 127ms (Views: 124.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pay" for 192.168.10.9 at 2019-10-02 22:02:06 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#pay as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n5guTYioTwwzCcxAaDxaxvlae6w4rK5BAE3nTpJSkJkEiYWlQuROcYXz+WH/081RuDfFLK9cZ7x5vZHTMHDj9w==", "amount"=>"4000", "payjp-token"=>"tok_5055a2caa284c8ece0eec89c2ef5"}
+Redirected to http://192.168.10.69:3000/usergamen
+Completed 302 Found in 2145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 22:02:08 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.7ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (19.2ms)
+  Rendered users/usergamen.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 184ms (Views: 152.8ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 22:03:34 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (29.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 213ms (Views: 194.4ms | ActiveRecord: 16.2ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 22:03:36 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gCM0tHpt4FkXhxONYfc+X+1TzZI8ecb4OipMUPZgxitDt0O7xS3FHwFYoQEOl5jTB0RLL+nizdPVYT3M4Hr97w==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 149ms (Views: 146.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 22:04:15 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nv15uZCKeoaIT+Ib0uBSMiPw19CorVITkvasEQZ9dRcF7NJRWsZ7+z611zpFD8WlYp1pUD9dm+7rBtqMpF8GeQ==", "amount"=>"3000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 132ms (Views: 127.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/carddata" for 192.168.10.9 at 2019-10-02 22:05:59 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 130ms (Views: 127.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 22:06:03 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.7ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (19.7ms)
+  Rendered users/usergamen.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 186ms (Views: 158.2ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/paymenttest" for 192.168.10.9 at 2019-10-02 22:06:04 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#paymenttest as HTML
+  Rendering users/paymenttest.html.erb within layouts/application
+  [1m[36mKingaku Load (0.7ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/paymenttest.html.erb:14
+  Rendered users/paymenttest.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 146ms (Views: 142.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/carddata" for 192.168.10.9 at 2019-10-02 22:06:07 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#carddata as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JTZUw4OF63uLhXWsm44u/P81OmBIHqYlavUmmRdXw0DmoiPMPMXOPZ1axyD07ohwFSK83Z2FrQ6FvlcFAU34hA==", "amount"=>"2000", "commit"=>"登録"}
+  Rendering users/carddata.html.erb within layouts/application
+  [1m[36mKingaku Load (0.6ms)[0m  [1m[34mSELECT "kingakus".* FROM "kingakus"[0m
+  ↳ app/views/users/carddata.html.erb:13
+  Rendered users/carddata.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 134ms (Views: 130.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/usergamen" for 192.168.10.9 at 2019-10-02 22:06:08 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#usergamen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendering users/usergamen.html.erb within layouts/application
+  [1m[36mMeeting Load (0.8ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings" WHERE "meetings"."users_id" = $1[0m  [["users_id", 12]]
+  ↳ app/views/users/usergamen.html.erb:27
+  Rendered /home/lmf/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/simple_calendar-2.3.0/app/views/simple_calendar/_month_calendar.html.erb (17.6ms)
+  Rendered users/usergamen.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 148ms (Views: 143.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 192.168.10.9 at 2019-10-02 22:17:49 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 144ms (Views: 139.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/login" for 192.168.10.9 at 2019-10-02 22:17:50 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 125ms (Views: 122.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 192.168.10.9 at 2019-10-02 22:17:52 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 125ms (Views: 121.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/new" for 192.168.10.9 at 2019-10-02 22:17:53 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mLevelKibou Load (3.1ms)[0m  [1m[34mSELECT "level_kibous".* FROM "level_kibous"[0m
+  ↳ app/views/users/new.html.erb:98
+  [1m[36mLevelKakutei Load (0.9ms)[0m  [1m[34mSELECT "level_kakuteis".* FROM "level_kakuteis"[0m
+  ↳ app/views/users/new.html.erb:103
+  [1m[36mLessonStyle Load (1.0ms)[0m  [1m[34mSELECT "lesson_styles".* FROM "lesson_styles"[0m
+  ↳ app/views/users/new.html.erb:108
+  [1m[36mFeeHowto Load (1.5ms)[0m  [1m[34mSELECT "fee_howtos".* FROM "fee_howtos"[0m
+  ↳ app/views/users/new.html.erb:113
+  [1m[36mPinanoOwned Load (1.5ms)[0m  [1m[34mSELECT "pinano_owneds".* FROM "pinano_owneds"[0m
+  ↳ app/views/users/new.html.erb:118
+  [1m[36mPinanoHistory Load (1.7ms)[0m  [1m[34mSELECT "pinano_histories".* FROM "pinano_histories"[0m
+  ↳ app/views/users/new.html.erb:122
+  Rendered users/new.html.erb within layouts/application (165.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 306ms (Views: 250.8ms | ActiveRecord: 51.1ms)
+
+
+Started GET "/" for 192.168.10.9 at 2019-10-02 22:32:15 +0900
+Cannot render console from 192.168.10.9! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 126ms (Views: 122.2ms | ActiveRecord: 1.9ms)
+
+

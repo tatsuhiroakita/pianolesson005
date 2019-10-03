@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def carddata
     @amount=params[:amount]
     @payjp_pk=ENV.fetch("PAYJP_PK")
-    binding.pry
+    ###binding.pry
     if params[:amount]=="" || params[:amount].nil?
       ##redirect_to 
       #binding.pry
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       flash.now[:danger] = "入力に不備があります。登録に失敗しました"
       render :paymenttest
     else 
-      binding.pry
+      ###binding.pry
       #redirect_to :usergamen
       #render :usergamen
       #redirect_to carddata
@@ -87,7 +87,7 @@ class UsersController < ApplicationController
     ##binding.pry
       
     ## 金額チェック
-    binding.pry
+    ##binding.pry
     if params[:amount] == "" || params[:amount].nil?
       flash.now[:danger] = "入力に不備があります。登録に失敗しました"
       puts "error"
@@ -103,11 +103,12 @@ class UsersController < ApplicationController
       currency: 'jpy'
       )
       ## 入金が成功したら表示
-      flash.now[:danger] = "入金に成功しました"
+      ###flash.now[:success] = "入金に成功しました"
       ## 成功していたら入金データに記録
 
-      ## ユーザ画面に戻る
-      redirect_to :usergamen and return
+      ## ユーザ画面に戻る ,入金が成功したら表示
+      ##redirect_to :usergamen and return
+      redirect_to :usergamen, success: "入金に成功しました"
     end
     
   end
@@ -117,7 +118,7 @@ class UsersController < ApplicationController
     #binding.pry
     @amount=params[:amount]
     @payjp_pk=ENV.fetch("PAYJP_PK")
-    ##binding.pry
+    binding.pry
     ##render :payment
   end
 
