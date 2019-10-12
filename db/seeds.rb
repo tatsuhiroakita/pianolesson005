@@ -28,9 +28,15 @@
 #LevelKakutei.create(name: '上級', created_at: '2011-11-14', updated_at:  '2011-11-14')
 
 
+
 Kingaku.create(kingaku: '500',created_at: '2011-11-14', updated_at:  '2011-11-14')
 Kingaku.create(kingaku: '1000',created_at: '2011-11-14', updated_at:  '2011-11-14')
 Kingaku.create(kingaku: '2000',created_at: '2011-11-14', updated_at:  '2011-11-14')
 Kingaku.create(kingaku: '3000',created_at: '2011-11-14', updated_at:  '2011-11-14')
 Kingaku.create(kingaku: '4000',created_at: '2011-11-14', updated_at:  '2011-11-14')
 Kingaku.create(kingaku: '5000',created_at: '2011-11-14', updated_at:  '2011-11-14')
+
+YoyakuStatus.create(name: '予約中', status:'0' ,created_at: '2011-11-14', updated_at:  '2011-11-14')
+YoyakuStatus.create(name: 'レッスン完了', status:'1' ,created_at: '2011-11-14', updated_at:  '2011-11-14')
+YoyakuStatus.create(name: '生徒都合キャンセル', status:'99' ,created_at: '2011-11-14', updated_at:  '2011-11-14')
+YoyakuStatus.create(name: '講師都合キャンセル', status:'999' ,created_at: '2011-11-14', updated_at:  '2011-11-14')

@@ -1,0 +1,52 @@
+<%#= form_with(model: meeting, local: true) do |form| %>
+<%#= form_with(model: meeting, local: true, method: @meeting.id ? :patch : :post) do |form| %>
+<%#= form_with(model: meeting, method: @meeting.id ? :patch : :post, local: true) do |form| %>
+
+<% if @meeting.id %>
+<% url_s = meetings_update_path %>
+<% else %>
+<% url_s = meetings_path %>
+<% end %>
+<%= form_with(url: url_s, local: true) do |form| %>
+
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.select( :start_date, @yoyaku) %>
+    <%= form.time_select :start_time,
+                minute_step:30   
+    %>
+
+  </div>
+  
+
+
+ 
+  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

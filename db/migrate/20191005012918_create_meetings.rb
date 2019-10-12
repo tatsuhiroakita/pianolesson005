@@ -7,6 +7,7 @@ class CreateMeetings < ActiveRecord::Migration[5.2]
       t.datetime :end_time
 
       t.references :users, foreign_key: true
+      t.references :yoyaku_statuses, foreign_key: true
 
       t.timestamps
     end

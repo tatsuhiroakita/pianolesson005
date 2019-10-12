@@ -22,8 +22,18 @@
         <td><%= meeting.end_time.strftime("%Y年%m月%d日%H時%M分　")  %></td>
         <td><%= meeting.users_id %></td>
         <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% limit_date_str = meeting.start_time.strftime("%Y-%m-%d 23:59:59") %>
+        <% limit_date = DateTime.parse(limit_date_str) %>
+        <%# limit_date -= 86400 %>
+        <% limit_date -= 1 %>
+        <%#= limit_date %>
+        <% today = DateTime.now %>
+        
+        <% if limit_date > today %>
+          <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+          <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

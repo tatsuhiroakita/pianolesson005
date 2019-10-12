@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :meetings
   resources :events
   get 'sessions/new'
+  
+  post 'meetings/update', to: 'meetings#update'
+
   ##get 'sessions/ne'
   get 'users/new'
   get 'admin_users/new'

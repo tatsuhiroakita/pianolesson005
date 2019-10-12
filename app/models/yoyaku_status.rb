@@ -1,0 +1,2 @@
+class YoyakuStatus < ApplicationRecord
+end
