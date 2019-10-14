@@ -1,0 +1,2 @@
+class NyukinRireki < ApplicationRecord
+end

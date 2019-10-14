@@ -105,6 +105,28 @@ class UsersController < ApplicationController
       ## 入金が成功したら表示
       ###flash.now[:success] = "入金に成功しました"
       ## 成功していたら入金データに記録
+      ## 入金テーブル更新
+      nyukin=Nyukin.find_by(users_id: current_user.id)
+      #binding.pry
+      if nyukin.nil? 
+        nyukin=Nyukin.new
+        nyukin.users_id=current_user.id
+      end
+      #binding.pry
+      if nyukin.zandaka.nil?
+        nyukin.zandaka=params[:amount].to_i
+      else
+        nyukin.zandaka+=params[:amount].to_i
+      end
+      nyukin.save
+
+      # 入金履歴の更新
+      rireki=NyukinRireki.new
+      rireki.users_id=current_user.id
+      rireki.nyukin_shubetsus_id=1
+      rireki.itu=DateTime.now
+      rireki.kingaku=params[:amount].to_i
+      rireki.save
 
       ## ユーザ画面に戻る ,入金が成功したら表示
       ##redirect_to :usergamen and return

@@ -1,0 +1,2 @@
+class NyukinShubetsu < ApplicationRecord
+end

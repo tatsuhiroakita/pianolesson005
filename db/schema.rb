@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_012918) do
+ActiveRecord::Schema.define(version: 2019_10_14_044346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2019_10_05_012918) do
 
   create_table "fee_howtos", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fees", force: :cascade do |t|
+    t.integer "level"
+    t.integer "style"
+    t.string "hosoku"
+    t.integer "kingaku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +74,32 @@ ActiveRecord::Schema.define(version: 2019_10_05_012918) do
     t.datetime "updated_at", null: false
     t.index ["users_id"], name: "index_meetings_on_users_id"
     t.index ["yoyaku_statuses_id"], name: "index_meetings_on_yoyaku_statuses_id"
+  end
+
+  create_table "nyukin_rirekis", force: :cascade do |t|
+    t.datetime "itu"
+    t.integer "kingaku"
+    t.bigint "nyukin_shubetsus_id"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nyukin_shubetsus_id"], name: "index_nyukin_rirekis_on_nyukin_shubetsus_id"
+    t.index ["users_id"], name: "index_nyukin_rirekis_on_users_id"
+  end
+
+  create_table "nyukin_shubetsus", force: :cascade do |t|
+    t.string "shubetu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nyukins", force: :cascade do |t|
+    t.integer "zandaka"
+    t.integer "yoykukin"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_nyukins_on_users_id"
   end
 
   create_table "pinano_histories", force: :cascade do |t|
@@ -124,6 +159,9 @@ ActiveRecord::Schema.define(version: 2019_10_05_012918) do
 
   add_foreign_key "meetings", "users", column: "users_id"
   add_foreign_key "meetings", "yoyaku_statuses", column: "yoyaku_statuses_id"
+  add_foreign_key "nyukin_rirekis", "nyukin_shubetsus", column: "nyukin_shubetsus_id"
+  add_foreign_key "nyukin_rirekis", "users", column: "users_id"
+  add_foreign_key "nyukins", "users", column: "users_id"
   add_foreign_key "users", "fee_howtos", column: "fee_howtos_id"
   add_foreign_key "users", "lesson_styles", column: "lesson_styles_id"
   add_foreign_key "users", "level_kakuteis", column: "level_kakuteis_id"

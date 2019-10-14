@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 
+  style: 1
+  hosoku: 
+  kingaku: 
+
+two:
+  level: 
+  style: 1
+  hosoku: 
+  kingaku: 

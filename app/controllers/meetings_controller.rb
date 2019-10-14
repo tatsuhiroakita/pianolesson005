@@ -56,15 +56,43 @@ class MeetingsController < ApplicationController
     @meeting.end_time = @meeting.start_time + 1800
     #binding.pry
 
-    respond_to do |format|
-      if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
-        format.json { render :show, status: :created, location: @meeting }
+    # 料金を入金テーブルから予約列に移動
+    fee=Fee.find_by(level: current_user.level_kakuteis_id, style: current_user.lesson_styles_id)
+    ryoukin=fee.kingaku / fee.style
+    nyukin=Nyukin.find_by(users_id: current_user.id)
+    if !nyukin.nil?  && !nyukin.zandaka.nil? && nyukin.zandaka >= ryoukin 
+      if nyukin.yoyakukin.nil?
+        nyukin.yoyakukin=ryoukin
       else
-        format.html { render :new }
-        format.json { render json: @meeting.errors, status: :unprocessable_entity }
+        nyukin.yoyakukin+=ryoukin
       end
+
+      nyukin.zandaka-=ryoukin
+      nyukin.save
+
+      # 入金履歴の更新
+      rireki=NyukinRireki.new
+      rireki.users_id=current_user.id
+      rireki.nyukin_shubetsus_id=3
+      rireki.itu=DateTime.now
+      rireki.kingaku=ryoukin
+      rireki.save
+
+      respond_to do |format|
+        if @meeting.save
+          format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
+          format.json { render :show, status: :created, location: @meeting }
+        else
+          format.html { render :new }
+          format.json { render json: @meeting.errors, status: :unprocessable_entity }
+        end
+      end
+
+    else
+      #flash.now[:danger] = '予約金が足りません'
+      redirect_to :usergamen, danger: "予約金が足りません"
     end
+
   end
 
   # PATCH/PUT /meetings/1
